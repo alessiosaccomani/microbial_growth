@@ -32,7 +32,7 @@ $$
 \dot{\vec{x}} = F(\vec{x}) \qquad \text{(1)}
 $$
 
-Clearly, both $\vec{x}$ and $F(\vec{x})$ are specified by the considered model, and thus can vary a lot. For example, a dynamical variable that is common to all the models is the *microbe size* $m$ (with $[m] = \mathbb{L}$), thus by solving eq. (1) one gets how the size of a microbe grows over time. Another important aspect that must be embedded in a model is the lifetime of a microbe. As a matter of fact, it is evident that $m$ can not become arbitrarily large, since the microbe would divide at a certain moment, generating a daughter cell. However, it is reasonable to think that the time at which the microbe divides is not deterministic, and so its lifespan should be drawn from a *probability distribution*, that, again, can vary according to the considered model. The best way to formalize this is to define a function $S(t)$ called *survival probability* that represents the probability of the microbe cell to survive (i.e. not divide) for $\tilde{t} \leq t$. In general the survival probability obeys the *hazard function*
+Clearly, both $\vec{x}$ and $F(\vec{x})$ are specified by the considered model, and thus can vary a lot. For example, a dynamical variable that is common to all the models is the *microbe size* $m$ (with $[m] = \mathbb{L}$), thus by solving eq. (1) one gets how the size of a microbe grows over time. Another important aspect that must be embedded in a model is the lifetime of a microbe. As a matter of fact, it is evident that $m$ can not become arbitrarily large, since the microbe would divide at a certain moment, generating a daughter cell. However, it is reasonable to think that the time at which the microbe divides is not deterministic, and so its lifespan should be drawn from a *probability distribution*, that, again, can vary according to the considered model. The best way to formalize this is to define a function $S(t)$ called the *survival probability*, where $S(t)$ represents the probability that the cell has not divided by time $t$. In general the survival probability obeys the *hazard function*
 
 $$
 \frac{\dot{S}(t)}{S(t)} = - h(\vec{x}(t)) \qquad \text{(2)}
@@ -94,11 +94,9 @@ $$
 Eq. (2) holds also in this case, but now
 
 $$
-h(m)=
-\begin{cases}
-0, & m<u,\\
-\omega_2 \dfrac{m+v}{u+v}, & m\geq u
-\end{cases}
+h(m)=0 \quad (m<u),
+\qquad
+h(m)=\omega_2\frac{m+v}{u+v} \quad (m\geq u)
 \qquad \text{(10)}
 $$
 
@@ -145,11 +143,9 @@ $$
 with
 
 $$
-h(m,p)=
-\begin{cases}
-0, & p<u,\\
-\omega_2 \dfrac{p+v}{u+v}, & p\geq u
-\end{cases}
+h(m,p)=0 \quad (p<u),
+\qquad
+h(m,p)=\omega_2\frac{p+v}{u+v} \quad (p\geq u)
 \qquad \text{(15)}
 $$
 
@@ -211,7 +207,7 @@ $$ = f_{\Gamma}(\alpha)  \delta(p)
 \int \delta(m - k m') f_{\beta}(k)  dk = f_{\Gamma}(\alpha) \delta(p) f_{\beta}\Big(\frac{m}{m'}\Big) \frac{1}{m'} \qquad \text{(22)}
 $$
 
-From eq. (22) we see that after each cell division a growth rate $\alpha$ is drawn from a gamma distribution independently from the growth rate of the mother cell. Furthermore, we see that also the division rate $k$ is no longer fixed at $1/2$ but it is sampled from a beta distribution, ensuring that $k \in (0,1)$. By integrating the previous equations we get
+From eq. (22) we see that after each cell division a growth rate $\alpha$ is drawn from a gamma distribution independently from the growth rate of the mother cell. Furthermore, we see that also the division ratio $k$ is no longer fixed at $1/2$ but it is sampled from a beta distribution, ensuring that $k \in (0,1)$. By integrating the previous equations we get
 
 $$
 m(t) = m_0 e ^ {\alpha t} \qquad \text{(23)}
@@ -322,12 +318,10 @@ $$\log P(\{\vec{x}_i\}|\vec{\theta}) = \sum _{i = 1}^{n} \log p(\vec{x}_i|\vec{\
 As prior $p(\vec{\theta})$ we have chosen a uniform distribution and taken its natural logarithm:
 
 $$
-\log p(\vec{\theta})=
-\begin{cases}
-0, & \vec{\theta}\in A,\\
--\infty, & \text{otherwise}
-\end{cases}
-\qquad \text{with } A\subseteq\mathbb{R}^d
+\log p(\vec{\theta}) = 0 \quad \text{if } \vec{\theta}\in A,
+\qquad
+\log p(\vec{\theta}) = -\infty \quad \text{otherwise},
+\qquad A\subseteq\mathbb{R}^d
 $$
 
 So the whole unnormalized log-posterior is 
